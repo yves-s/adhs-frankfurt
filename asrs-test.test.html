@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>ASRS Test Suite</title>
+  <style>
+    body { font-family: system-ui; padding: 24px; max-width: 640px; }
+    .pass { color: green; font-weight: 600; }
+    .fail { color: red; font-weight: 600; }
+  </style>
+  <script src="asrs-test.js"></script>
+</head>
+<body>
+  <h1>ASRS Scoring Tests</h1>
+  <ol id="results"></ol>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const { calculateScore, isPositiveScreen } = window.__ASRS;
+      const results = document.getElementById("results");
+
+      const cases = [
+        { name: "all zeros → score 0", input: [0,0,0,0,0,0], expectedScore: 0, expectedPositive: false },
+        { name: "all max → score 6", input: [4,4,4,4,4,4], expectedScore: 6, expectedPositive: true },
+        { name: "items 1-3 at 'oft' (3) only → 3 (Q4-6 at 0)", input: [3,3,3,0,0,0], expectedScore: 3, expectedPositive: false },
+        { name: "items 4-6 at 'manchmal' (2) only → 3 (Q1-3 at 0)", input: [0,0,0,2,2,2], expectedScore: 3, expectedPositive: false },
+        { name: "items 1-3 at 'manchmal' (2) → 0 (below threshold)", input: [2,2,2,0,0,0], expectedScore: 0, expectedPositive: false },
+        { name: "borderline positive: 4 of 6", input: [3,3,0,2,2,0], expectedScore: 4, expectedPositive: true },
+        { name: "Q1-3 at 'sehr oft', Q4-6 at 'oft' → 6", input: [4,4,4,3,3,3], expectedScore: 6, expectedPositive: true },
+        { name: "throws on wrong length", input: [1,2,3], expectedThrow: true }
+      ];
+
+      for (const c of cases) {
+        const li = document.createElement("li");
+        try {
+          const score = calculateScore(c.input);
+          if (c.expectedThrow) {
+            li.innerHTML = `<span class="fail">FAIL</span> ${c.name}: expected throw, got score ${score}`;
+          } else {
+            const positive = isPositiveScreen(score);
+            const ok = score === c.expectedScore && positive === c.expectedPositive;
+            li.innerHTML = ok
+              ? `<span class="pass">PASS</span> ${c.name} (score=${score}, positive=${positive})`
+              : `<span class="fail">FAIL</span> ${c.name}: expected score=${c.expectedScore}/positive=${c.expectedPositive}, got score=${score}/positive=${positive}`;
+          }
+        } catch (e) {
+          if (c.expectedThrow) {
+            li.innerHTML = `<span class="pass">PASS</span> ${c.name} (threw: ${e.message})`;
+          } else {
+            li.innerHTML = `<span class="fail">FAIL</span> ${c.name}: unexpected throw: ${e.message}`;
+          }
+        }
+        results.appendChild(li);
+      }
+    });
+  </script>
+</body>
+</html>
