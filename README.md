@@ -20,3 +20,14 @@ Then visit http://localhost:8000.
 ## Deployment
 
 Static files. Deploy to Coolify or any static host.
+
+## Vor Live-Gang noch zu erledigen (Kata)
+
+- [ ] Echte Fotos in `images/` einbinden (siehe [images/README.md](images/README.md))
+- [ ] Persönliche Note in Sektion 7 ausformulieren (Platzhalter im HTML markiert)
+- [ ] Praxis-Geburtsjahr in Sektion 7 einsetzen (aktuell „Praxis seit 20XX")
+- [ ] Telefon-Nummer in `impressum.html` und JSON-LD ergänzen
+- [ ] Datenschutzerklärung mit Datenschutz-Berater:in finalisieren
+- [ ] Aufsichtsbehörde in `impressum.html` ergänzen
+- [ ] Plausible Analytics einbinden (nach Deployment)
+- [ ] Buchungs-System ersetzen (`mailto:` → echte Buchungs-Strecke)
