@@ -55,8 +55,14 @@ function renderTest(container, onComplete) {
     const progress = Math.round((currentItem / 6) * 100);
 
     container.innerHTML = `
-      <div class="asrs__progress" aria-label="Fortschritt">
-        <div class="asrs__progress-bar" style="width: ${progress}%"></div>
+      <div class="asrs__progress">
+        <div class="asrs__progress-bar"
+             role="progressbar"
+             aria-label="Fortschritt"
+             aria-valuenow="${currentItem}"
+             aria-valuemin="0"
+             aria-valuemax="6"
+             style="width: ${progress}%"></div>
         <span class="asrs__progress-label">Frage ${currentItem + 1} von 6</span>
       </div>
       <fieldset class="asrs__question">
