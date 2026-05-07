@@ -451,3 +451,36 @@ ul, ol { padding-left: var(--sp-6); margin: 0 0 var(--sp-4) 0; }
   font-size: var(--fs-sm);
   color: var(--text-muted);
 }
+
+/* ===== Section: Anschluss ===== */
+.section-anschluss {
+  background: var(--text);
+  color: #fff;
+}
+.section-anschluss h2,
+.section-anschluss h3 {
+  color: #fff;
+}
+.section-anschluss__inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+.section-anschluss__title {
+  margin-bottom: var(--sp-6);
+}
+.section-anschluss__body {
+  font-size: var(--fs-md);
+  color: rgba(255,255,255,0.85);
+  margin-bottom: var(--sp-4);
+  text-align: left;
+}
+.section-anschluss__body strong {
+  color: #fff;
+}
+.section-anschluss__close {
+  font-style: italic;
+  color: rgba(255,255,255,0.7);
+  font-size: var(--fs-sm);
+  margin-top: var(--sp-6);
+}
