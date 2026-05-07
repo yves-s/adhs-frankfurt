@@ -101,3 +101,107 @@ ul, ol { padding-left: var(--sp-6); margin: 0 0 var(--sp-4) 0; }
 .section--soft {
   background: var(--bg-soft);
 }
+
+/* ===== Components: buttons ===== */
+.btn {
+  display: inline-block;
+  padding: 14px 24px;
+  border-radius: var(--radius-md);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  text-align: center;
+  border: 1px solid transparent;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.btn:hover { text-decoration: none; opacity: 0.92; }
+.btn:active { transform: translateY(1px); }
+.btn--primary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn--secondary {
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ===== Components: pill ===== */
+.pill {
+  display: inline-block;
+  background: var(--accent-soft);
+  color: var(--accent);
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  margin-bottom: var(--sp-3);
+}
+
+/* ===== Components: highlight (hero underline) ===== */
+.hl {
+  background: linear-gradient(180deg, transparent 60%, var(--accent-highlight) 60%);
+  padding: 0 4px;
+}
+
+/* ===== Section: Hero ===== */
+.section-hero {
+  padding: var(--sp-12) 0 var(--sp-16);
+}
+@media (min-width: 768px) {
+  .section-hero { padding: var(--sp-20) 0; }
+}
+.section-hero__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-8);
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .section-hero__grid {
+    grid-template-columns: 1.1fr 1fr;
+    gap: var(--sp-12);
+  }
+}
+.section-hero__title {
+  margin-bottom: var(--sp-4);
+}
+.section-hero__lead {
+  font-size: var(--fs-md);
+  color: var(--text-body);
+  margin-bottom: var(--sp-6);
+  max-width: 540px;
+}
+.section-hero__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-6);
+}
+.section-hero__trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--border);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+.section-hero__trust span::before {
+  content: "✓ ";
+  color: var(--success);
+  font-weight: 700;
+}
+.section-hero__photo {
+  aspect-ratio: 4/5;
+  background: linear-gradient(135deg, #c5d8f0 0%, #8da9c4 100%);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: flex-end;
+  padding: var(--sp-4);
+  color: #fff;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
