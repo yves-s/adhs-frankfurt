@@ -6,9 +6,9 @@
   --text: #1A1715;
   --text-body: #4A4540;
   --text-muted: #8A847C;
-  --accent: #A8615C;
-  --accent-soft: #F4E8E6;
-  --accent-highlight: #F4E8E6;
+  --accent: #C77370;
+  --accent-soft: #F6E2E0;
+  --accent-highlight: #F6E2E0;
   --border: #E8E4DC;
   --success: #16a34a;
 
@@ -243,7 +243,7 @@ ul, ol { padding-left: var(--sp-6); margin: 0 0 var(--sp-4) 0; }
 }
 .section-hero__photo {
   aspect-ratio: 3/4;
-  background: linear-gradient(165deg, #EFE6D8 0%, #E2CFC2 38%, #C68A82 78%, #A8615C 100%);
+  background: linear-gradient(165deg, #EFE6D8 0%, #E8CFCC 38%, #D89490 78%, #C77370 100%);
   border-radius: var(--radius-sm);
   display: flex;
   align-items: flex-end;
