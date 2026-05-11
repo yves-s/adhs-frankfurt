@@ -976,3 +976,197 @@ ul, ol { padding-left: var(--sp-6); margin: 0 0 var(--sp-4) 0; }
   color: rgba(255, 255, 255, 0.5);
   letter-spacing: 0.01em;
 }
+
+/* ===== Section Balance Refinements (editorial split-header pattern) ===== */
+/* Stops "everything starts top-left, right half empty" feel by giving
+   sections with title+lead a deliberate 2-column horizontal structure. */
+
+@media (min-width: 900px) {
+
+  /* PAIN: title left, lead right (editorial split), list spans below */
+  .container:has(> .section-pain__title) {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    column-gap: var(--sp-16);
+    row-gap: var(--sp-12);
+    align-items: end;
+  }
+  .section-pain__title {
+    grid-column: 1;
+    grid-row: 1;
+    max-width: 22ch;
+    margin: 0;
+  }
+  .section-pain__lead {
+    grid-column: 2;
+    grid-row: 1;
+    max-width: 42ch;
+    margin: 0;
+    align-self: end;
+  }
+  .section-pain__list {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    max-width: 820px;
+  }
+  .section-pain__bridge {
+    grid-column: 1 / -1;
+    max-width: 60ch;
+  }
+
+  /* PRICING: title+lead split-header, cards span full width below */
+  .container:has(> .section-pricing__title) {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    column-gap: var(--sp-16);
+    row-gap: var(--sp-16);
+    align-items: end;
+  }
+  .section-pricing__title {
+    grid-column: 1;
+    grid-row: 1;
+    max-width: 20ch;
+    margin: 0;
+  }
+  .section-pricing__lead {
+    grid-column: 2;
+    grid-row: 1;
+    max-width: 42ch;
+    margin: 0;
+    align-self: end;
+  }
+  .section-pricing__cards {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+  .section-pricing__note {
+    grid-column: 1 / -1;
+    max-width: 56ch;
+  }
+
+  /* PROCESS: title left, intro note right (note moves up from bottom) */
+  .container:has(> .section-process__title) {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    column-gap: var(--sp-16);
+    row-gap: var(--sp-16);
+    align-items: end;
+  }
+  .section-process__title {
+    grid-column: 1;
+    grid-row: 1;
+    max-width: 22ch;
+    margin: 0;
+  }
+  .section-process__steps {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+  .section-process__note {
+    grid-column: 1 / -1;
+    margin-top: var(--sp-8);
+  }
+
+  /* ANSCHLUSS: title left, body block right */
+  .section-anschluss .container {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    column-gap: var(--sp-16);
+    align-items: start;
+  }
+  .section-anschluss__inner {
+    display: contents;
+  }
+  .section-anschluss__title {
+    grid-column: 1;
+    max-width: 22ch;
+    margin: 0;
+    position: sticky;
+    top: var(--sp-12);
+  }
+  .section-anschluss__body {
+    grid-column: 2;
+    max-width: 50ch;
+  }
+  .section-anschluss__body:first-of-type { grid-row: 1; }
+  .section-anschluss__body + .section-anschluss__body { grid-row: auto; }
+  .section-anschluss__close {
+    grid-column: 2;
+    max-width: 50ch;
+    margin-top: var(--sp-6);
+  }
+
+  /* FAQ: title left (sticky on scroll), accordion right */
+  .container:has(> .section-faq__title) {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    column-gap: var(--sp-16);
+    align-items: start;
+  }
+  .section-faq__title {
+    grid-column: 1;
+    max-width: 16ch;
+    margin: 0;
+    position: sticky;
+    top: var(--sp-12);
+  }
+  .section-faq__list {
+    grid-column: 2;
+    margin: 0;
+    max-width: none;
+  }
+
+  /* VALUE-PROP: title with editorial split — title takes 1fr, cols take 2fr */
+  .container:has(> .section-value__title) {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: var(--sp-16);
+    row-gap: var(--sp-16);
+    align-items: start;
+  }
+  .section-value__title {
+    grid-column: 1;
+    margin: 0;
+    max-width: 18ch;
+    position: sticky;
+    top: var(--sp-12);
+  }
+  .section-value__cols {
+    grid-column: 2;
+    grid-template-columns: 1fr;
+    gap: var(--sp-12);
+  }
+  .section-value__col {
+    border-top: 1px solid var(--border);
+    padding-top: var(--sp-6);
+  }
+  .section-value__col p { max-width: 56ch; }
+
+  /* ASRS: intro left, test card right */
+  .container:has(> .section-asrs__intro) {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    column-gap: var(--sp-16);
+    align-items: start;
+  }
+  .section-asrs__intro {
+    grid-column: 1;
+    margin: 0;
+    max-width: 36ch;
+    position: sticky;
+    top: var(--sp-12);
+  }
+  #asrs-test {
+    grid-column: 2;
+  }
+  .asrs { max-width: none; margin: 0; }
+}
+
+/* On narrower (mobile/tablet) viewports, sticky elements would be awkward */
+@media (max-width: 899px) {
+  .section-faq__title,
+  .section-value__title,
+  .section-asrs__intro,
+  .section-anschluss__title { position: static; }
+}
+
