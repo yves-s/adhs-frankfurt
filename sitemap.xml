@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://psychotherapie-schleich.de/</loc>
+    <loc>https://psychotherapie-schleich.de/adhs/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://psychotherapie-schleich.de/impressum.html</loc>
+    <loc>https://psychotherapie-schleich.de/adhs/diagnostik-ablauf.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://psychotherapie-schleich.de/adhs/spaetdiagnose-frauen.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://psychotherapie-schleich.de/adhs/impressum.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://psychotherapie-schleich.de/datenschutz.html</loc>
+    <loc>https://psychotherapie-schleich.de/adhs/datenschutz.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
-  <!-- TODO: add /spaetdiagnose-frauen.html when sister LP ships -->
 </urlset>

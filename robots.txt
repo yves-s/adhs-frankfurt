@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://psychotherapie-schleich.de/sitemap.xml
+Sitemap: https://psychotherapie-schleich.de/adhs/sitemap.xml
