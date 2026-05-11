@@ -491,11 +491,17 @@ ul, ol { padding-left: var(--sp-6); margin: 0 0 var(--sp-4) 0; }
 }
 @media (min-width: 820px) {
   .section-process__step {
-    grid-template-columns: 80px 1.1fr 2fr;
-    gap: var(--sp-12);
+    grid-template-columns: 80px 1.4fr 2fr;
+    grid-template-rows: auto 1fr;
+    column-gap: var(--sp-12);
+    row-gap: var(--sp-2);
     align-items: start;
     padding: var(--sp-12) 0;
   }
+  .section-process__step::before { grid-column: 1; grid-row: 1 / span 2; }
+  .section-process__step h3 { grid-column: 2; grid-row: 1; align-self: start; }
+  .section-process__step .duration { grid-column: 2; grid-row: 2; align-self: start; margin-top: var(--sp-1); }
+  .section-process__step p { grid-column: 3; grid-row: 1 / span 2; }
 }
 .section-process__step::before {
   content: counter(step, decimal-leading-zero);
