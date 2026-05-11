@@ -1,15 +1,15 @@
-/* ===== Praxis Schleich Landing Page === Tokens === */
+/* ===== Praxis Schleich Landing Page === Tokens (E3 · Rose Conversion) === */
 :root {
-  /* Colors (spec 4.2) */
-  --bg: #ffffff;
-  --bg-soft: #f8fafb;
-  --text: #0a0a0a;
-  --text-body: #444444;
-  --text-muted: #777777;
-  --accent: #1a56db;
-  --accent-soft: #e8f0fe;
-  --accent-highlight: #ffe066;
-  --border: #e5e7eb;
+  /* Colors — E3 Feminine Minimal · Rose Conversion */
+  --bg: #FBFAF7;
+  --bg-soft: #FFFFFF;
+  --text: #1A1715;
+  --text-body: #4A4540;
+  --text-muted: #8A847C;
+  --accent: #A8615C;
+  --accent-soft: #F4E8E6;
+  --accent-highlight: #F4E8E6;
+  --border: #E8E4DC;
   --success: #16a34a;
 
   /* Type scale */
@@ -64,18 +64,20 @@ html { scroll-behavior: smooth; }
 html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Outfit", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
   font-size: var(--fs-base);
-  line-height: 1.6;
+  line-height: 1.65;
   color: var(--text-body);
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
 }
 h1, h2, h3, h4, h5, h6 {
   margin: 0 0 var(--sp-4) 0;
   color: var(--text);
-  font-weight: 700;
-  line-height: 1.15;
+  font-family: "Fraunces", Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  line-height: 1.1;
   letter-spacing: -0.02em;
 }
 h1 { font-size: var(--fs-2xl); }
@@ -199,7 +201,7 @@ ul, ol { padding-left: var(--sp-6); margin: 0 0 var(--sp-4) 0; }
 }
 .section-hero__photo {
   aspect-ratio: 4/5;
-  background: linear-gradient(135deg, #c5d8f0 0%, #8da9c4 100%);
+  background: linear-gradient(135deg, #F4E8E6 0%, #D4A8A2 100%);
   border-radius: var(--radius-lg);
   display: flex;
   align-items: flex-end;
@@ -586,7 +588,7 @@ ul, ol { padding-left: var(--sp-6); margin: 0 0 var(--sp-4) 0; }
   border-color: var(--accent);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.6),
-    0 12px 32px -16px rgba(26, 86, 219, 0.18);
+    0 12px 32px -16px rgba(168, 97, 92, 0.22);
 }
 .pricing-card__badge {
   position: absolute;
