@@ -121,6 +121,51 @@ ul, ol { padding-left: var(--sp-6); margin: 0 0 var(--sp-4) 0; }
   border-bottom: 1px solid var(--border);
 }
 
+/* ===== Legal Pages (Impressum, Datenschutz) ===== */
+.legal-page .container {
+  max-width: 760px;
+}
+.legal-page h1 {
+  margin: var(--sp-6) 0 var(--sp-8);
+  max-width: 18ch;
+}
+.legal-page h2 {
+  margin: var(--sp-12) 0 var(--sp-4);
+  font-size: var(--fs-xl);
+}
+.legal-page p,
+.legal-page address {
+  font-size: var(--fs-base);
+  line-height: 1.65;
+  margin: 0 0 var(--sp-4);
+  max-width: 65ch;
+  color: var(--text-body);
+}
+.legal-page address {
+  font-style: normal;
+}
+.legal-page strong {
+  color: var(--text);
+  font-weight: 500;
+}
+.legal-page a {
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.legal-page a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+.legal-back {
+  margin-top: var(--sp-16) !important;
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+.legal-back a {
+  border-bottom: 0;
+}
+
 /* ===== Site Navigation ===== */
 .site-nav {
   padding: var(--sp-6) 0;
