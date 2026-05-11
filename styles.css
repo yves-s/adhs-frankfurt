@@ -231,13 +231,16 @@ ul, ol { padding-left: var(--sp-6); margin: 0 0 var(--sp-4) 0; }
   color: var(--accent);
   border-bottom-color: var(--accent);
 }
-@media (max-width: 640px) {
-  .nav { gap: var(--sp-3); }
-  .nav__location { display: none; }
+.nav__meta a[aria-current="page"] {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+@media (max-width: 900px) {
   .nav__meta { gap: var(--sp-4); }
 }
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .nav__link { display: none; }
+  .nav { gap: var(--sp-4); }
 }
 
 /* ===== Eyebrow (uppercase letterspaced accent label) ===== */
