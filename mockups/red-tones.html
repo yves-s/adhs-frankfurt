@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rot-Tönen für E3 · ADHS-Diagnostik Frankfurt</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #FBFAF7;
+    --surface: #FFFFFF;
+    --ink: #1A1715;
+    --ink-soft: #4A4540;
+    --ink-muted: #8A847C;
+    --hairline: #E8E4DC;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:"Outfit",system-ui,sans-serif;
+    font-size:16px;line-height:1.65;
+    color:var(--ink-soft);
+    background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+    font-weight:400;
+  }
+  .page{max-width:1180px;margin:0 auto;padding:64px 32px 96px}
+  .page__intro{margin:0 0 64px;max-width:60ch}
+  .page__intro h1{
+    font-family:"Fraunces",serif;font-weight:500;
+    font-size:clamp(32px,4vw,48px);line-height:1.1;letter-spacing:-0.02em;
+    color:var(--ink);margin:0 0 16px;
+  }
+  .page__intro h1 em{font-style:italic;font-weight:400;color:var(--ink-soft)}
+  .page__intro p{font-size:17px;color:var(--ink-soft);margin:0;max-width:60ch}
+  .page__intro a{
+    color:var(--ink);border-bottom:1px solid var(--ink);
+    text-decoration:none;padding-bottom:1px;
+  }
+
+  /* Palette swatches row */
+  .swatch-row{
+    display:flex;flex-wrap:wrap;gap:16px;margin:0 0 80px;
+    border-top:1px solid var(--hairline);padding-top:32px;
+  }
+  .swatch{
+    flex:1;min-width:140px;
+    display:flex;flex-direction:column;gap:8px;
+  }
+  .swatch__chip{
+    aspect-ratio:1.6;border-radius:2px;
+  }
+  .swatch__label{
+    font-size:12.5px;color:var(--ink-muted);letter-spacing:0.01em;
+  }
+  .swatch__name{
+    font-family:"Fraunces",serif;font-weight:500;font-size:17px;
+    color:var(--ink);letter-spacing:-0.01em;
+  }
+  .swatch__hex{
+    font-family:"Outfit",sans-serif;font-size:13px;color:var(--ink-muted);
+    letter-spacing:0.04em;
+  }
+
+  /* Tone strips — one per variant */
+  .strip{
+    padding:80px 0;
+    border-top:1px solid var(--hairline);
+  }
+  .strip:last-of-type{border-bottom:1px solid var(--hairline)}
+  .strip__head{
+    display:flex;flex-wrap:wrap;align-items:baseline;gap:24px;
+    margin:0 0 48px;
+  }
+  .strip__variant{
+    font-family:"Outfit",sans-serif;font-size:12px;font-weight:500;
+    letter-spacing:0.16em;text-transform:uppercase;
+    color:var(--ink-muted);
+  }
+  .strip__name{
+    font-family:"Fraunces",serif;font-weight:500;font-size:24px;
+    color:var(--ink);letter-spacing:-0.01em;margin:0;
+  }
+  .strip__hex{
+    font-family:"Outfit",sans-serif;font-size:13px;color:var(--ink-muted);
+    letter-spacing:0.04em;
+  }
+  .strip__demo{
+    display:grid;grid-template-columns:1fr;gap:40px;align-items:start;
+  }
+  @media(min-width:920px){
+    .strip__demo{grid-template-columns:1.4fr 1fr;gap:64px}
+  }
+  .demo__eyebrow{
+    font-family:"Outfit",sans-serif;font-size:12px;font-weight:500;
+    letter-spacing:0.16em;text-transform:uppercase;
+    display:inline-block;margin:0 0 20px;
+  }
+  .demo__h1{
+    font-family:"Fraunces",serif;font-weight:500;
+    font-size:clamp(32px,4.2vw,48px);line-height:1.1;letter-spacing:-0.02em;
+    color:var(--ink);margin:0 0 20px;
+  }
+  .demo__h1 em{
+    font-style:italic;font-weight:400;
+  }
+  .demo__lead{
+    font-size:17px;line-height:1.55;color:var(--ink-soft);
+    margin:0 0 28px;max-width:46ch;
+  }
+  .demo__ctas{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+  .btn--primary{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:14px 24px;border-radius:999px;
+    color:var(--bg);font-family:"Outfit",sans-serif;
+    font-size:14.5px;font-weight:500;letter-spacing:0.01em;
+    text-decoration:none;
+  }
+  .btn--text{
+    font-family:"Outfit",sans-serif;font-size:14.5px;font-weight:500;
+    color:var(--ink);text-decoration:none;
+    border-bottom:1px solid var(--ink);padding-bottom:2px;
+  }
+  .demo__price-card{
+    padding:24px 0 0;
+    border-top:1px solid var(--hairline);
+  }
+  .demo__price-label{
+    font-family:"Outfit",sans-serif;font-size:12px;font-weight:500;
+    letter-spacing:0.16em;text-transform:uppercase;
+    margin:0 0 12px;
+  }
+  .demo__price-name{
+    font-family:"Fraunces",serif;font-weight:500;font-size:20px;
+    color:var(--ink);margin:0 0 6px;letter-spacing:-0.01em;
+  }
+  .demo__price-amount{
+    font-family:"Fraunces",serif;font-size:36px;font-weight:400;
+    color:var(--ink);letter-spacing:-0.02em;line-height:1;margin:0 0 6px;
+  }
+  .demo__price-meta{
+    font-size:13px;color:var(--ink-muted);letter-spacing:0.01em;margin:0 0 20px;
+  }
+  .demo__price-list{
+    list-style:none;padding:0;margin:0;font-size:14px;
+  }
+  .demo__price-list li{
+    padding:8px 0;border-bottom:1px solid var(--hairline);
+    color:var(--ink-soft);
+  }
+  .demo__price-list li::before{
+    content:"—";margin-right:10px;
+  }
+
+  /* --- TONES --- */
+  .t-r1{--accent:#A8615C;--accent-soft:#F4E8E6}
+  .t-r2{--accent:#B8674F;--accent-soft:#F5E5DD}
+  .t-r3{--accent:#9C4A3F;--accent-soft:#EFDDDA}
+  .t-r4{--accent:#6E2F2E;--accent-soft:#E8D5D2}
+  .t-r5{--accent:#C77370;--accent-soft:#F6E2E0}
+  .t-r6{--accent:#8F5757;--accent-soft:#ECDADA}
+
+  .strip .demo__eyebrow{color:var(--accent)}
+  .strip .demo__h1 em{color:var(--accent)}
+  .strip .btn--primary{background:var(--ink)}
+  .strip .btn--primary:hover{background:var(--accent)}
+  .strip .demo__price-label{color:var(--accent)}
+  .strip .demo__price-list li::before{color:var(--accent)}
+
+  /* Variant tag */
+  .variant-tag{
+    position:fixed;bottom:24px;left:24px;background:var(--ink);color:var(--bg);
+    padding:10px 16px;border-radius:999px;font-size:11px;letter-spacing:0.12em;
+    text-transform:uppercase;z-index:100;font-weight:500;
+  }
+  .variant-tag a{color:var(--bg);text-decoration:none;opacity:.6;margin-left:14px}
+  .variant-tag a:hover{opacity:1}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="page__intro">
+    <h1>Sechs <em>Rot-Tönen</em> für E3.</h1>
+    <p>Gleiche Typo (Fraunces Roman + Outfit), gleiche Off-White-Basis, gleiche Struktur — nur der Accent unterscheidet sich. Jede Spalte zeigt, wie der Ton im Hero, am CTA, im italic-Akzent und am Pricing-Anker wirkt. <a href="index.html">↑ zurück zur Auswahl</a></p>
+  </div>
+
+  <!-- Palette swatches at a glance -->
+  <div class="swatch-row">
+    <div class="swatch">
+      <div class="swatch__chip" style="background:#A8615C"></div>
+      <span class="swatch__label">R1 · aktuell</span>
+      <span class="swatch__name">Altrosa</span>
+      <span class="swatch__hex">#A8615C</span>
+    </div>
+    <div class="swatch">
+      <div class="swatch__chip" style="background:#B8674F"></div>
+      <span class="swatch__label">R2</span>
+      <span class="swatch__name">Terrakotta</span>
+      <span class="swatch__hex">#B8674F</span>
+    </div>
+    <div class="swatch">
+      <div class="swatch__chip" style="background:#9C4A3F"></div>
+      <span class="swatch__label">R3</span>
+      <span class="swatch__name">Brick</span>
+      <span class="swatch__hex">#9C4A3F</span>
+    </div>
+    <div class="swatch">
+      <div class="swatch__chip" style="background:#6E2F2E"></div>
+      <span class="swatch__label">R4</span>
+      <span class="swatch__name">Burgund</span>
+      <span class="swatch__hex">#6E2F2E</span>
+    </div>
+    <div class="swatch">
+      <div class="swatch__chip" style="background:#C77370"></div>
+      <span class="swatch__label">R5</span>
+      <span class="swatch__name">Koralle</span>
+      <span class="swatch__hex">#C77370</span>
+    </div>
+    <div class="swatch">
+      <div class="swatch__chip" style="background:#8F5757"></div>
+      <span class="swatch__label">R6</span>
+      <span class="swatch__name">Mauve</span>
+      <span class="swatch__hex">#8F5757</span>
+    </div>
+  </div>
+
+  <!-- R1 Altrosa (current) -->
+  <section class="strip t-r1">
+    <div class="strip__head">
+      <span class="strip__variant">R1 · aktuell</span>
+      <h2 class="strip__name">Altrosa</h2>
+      <span class="strip__hex">#A8615C · warm, dusty, balanced</span>
+    </div>
+    <div class="strip__demo">
+      <div>
+        <span class="demo__eyebrow">ADHS-Diagnostik · Erwachsene</span>
+        <h3 class="demo__h1">Klarheit in Wochen, <em>nicht in Monaten.</em></h3>
+        <p class="demo__lead">Online oder vor Ort in Frankfurt-Nordend. Du startest mit einer 30-minütigen Ersteinschätzung.</p>
+        <div class="demo__ctas">
+          <a href="#" class="btn--primary">Selbsttest starten →</a>
+          <a href="#" class="btn--text">Ersteinschätzung anfragen</a>
+        </div>
+      </div>
+      <div class="demo__price-card">
+        <span class="demo__price-label">Hier startest du</span>
+        <h4 class="demo__price-name">Ersteinschätzung</h4>
+        <div class="demo__price-amount">123,34 €</div>
+        <p class="demo__price-meta">50 Min · online oder vor Ort</p>
+        <ul class="demo__price-list">
+          <li>Anliegen und Vorgeschichte</li>
+          <li>Anhaltspunkte für ADHS einordnen</li>
+          <li>Klare Empfehlung: weiter — ja oder nein</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- R2 Terrakotta -->
+  <section class="strip t-r2">
+    <div class="strip__head">
+      <span class="strip__variant">R2</span>
+      <h2 class="strip__name">Terrakotta</h2>
+      <span class="strip__hex">#B8674F · wärmer, keramisch, sonniger</span>
+    </div>
+    <div class="strip__demo">
+      <div>
+        <span class="demo__eyebrow">ADHS-Diagnostik · Erwachsene</span>
+        <h3 class="demo__h1">Klarheit in Wochen, <em>nicht in Monaten.</em></h3>
+        <p class="demo__lead">Online oder vor Ort in Frankfurt-Nordend. Du startest mit einer 30-minütigen Ersteinschätzung.</p>
+        <div class="demo__ctas">
+          <a href="#" class="btn--primary">Selbsttest starten →</a>
+          <a href="#" class="btn--text">Ersteinschätzung anfragen</a>
+        </div>
+      </div>
+      <div class="demo__price-card">
+        <span class="demo__price-label">Hier startest du</span>
+        <h4 class="demo__price-name">Ersteinschätzung</h4>
+        <div class="demo__price-amount">123,34 €</div>
+        <p class="demo__price-meta">50 Min · online oder vor Ort</p>
+        <ul class="demo__price-list">
+          <li>Anliegen und Vorgeschichte</li>
+          <li>Anhaltspunkte für ADHS einordnen</li>
+          <li>Klare Empfehlung: weiter — ja oder nein</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- R3 Brick -->
+  <section class="strip t-r3">
+    <div class="strip__head">
+      <span class="strip__variant">R3</span>
+      <h2 class="strip__name">Brick</h2>
+      <span class="strip__hex">#9C4A3F · erdiger, gegründeter, weniger rosig</span>
+    </div>
+    <div class="strip__demo">
+      <div>
+        <span class="demo__eyebrow">ADHS-Diagnostik · Erwachsene</span>
+        <h3 class="demo__h1">Klarheit in Wochen, <em>nicht in Monaten.</em></h3>
+        <p class="demo__lead">Online oder vor Ort in Frankfurt-Nordend. Du startest mit einer 30-minütigen Ersteinschätzung.</p>
+        <div class="demo__ctas">
+          <a href="#" class="btn--primary">Selbsttest starten →</a>
+          <a href="#" class="btn--text">Ersteinschätzung anfragen</a>
+        </div>
+      </div>
+      <div class="demo__price-card">
+        <span class="demo__price-label">Hier startest du</span>
+        <h4 class="demo__price-name">Ersteinschätzung</h4>
+        <div class="demo__price-amount">123,34 €</div>
+        <p class="demo__price-meta">50 Min · online oder vor Ort</p>
+        <ul class="demo__price-list">
+          <li>Anliegen und Vorgeschichte</li>
+          <li>Anhaltspunkte für ADHS einordnen</li>
+          <li>Klare Empfehlung: weiter — ja oder nein</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- R4 Burgund -->
+  <section class="strip t-r4">
+    <div class="strip__head">
+      <span class="strip__variant">R4</span>
+      <h2 class="strip__name">Burgund</h2>
+      <span class="strip__hex">#6E2F2E · reif, premium, ruhig autoritativ</span>
+    </div>
+    <div class="strip__demo">
+      <div>
+        <span class="demo__eyebrow">ADHS-Diagnostik · Erwachsene</span>
+        <h3 class="demo__h1">Klarheit in Wochen, <em>nicht in Monaten.</em></h3>
+        <p class="demo__lead">Online oder vor Ort in Frankfurt-Nordend. Du startest mit einer 30-minütigen Ersteinschätzung.</p>
+        <div class="demo__ctas">
+          <a href="#" class="btn--primary">Selbsttest starten →</a>
+          <a href="#" class="btn--text">Ersteinschätzung anfragen</a>
+        </div>
+      </div>
+      <div class="demo__price-card">
+        <span class="demo__price-label">Hier startest du</span>
+        <h4 class="demo__price-name">Ersteinschätzung</h4>
+        <div class="demo__price-amount">123,34 €</div>
+        <p class="demo__price-meta">50 Min · online oder vor Ort</p>
+        <ul class="demo__price-list">
+          <li>Anliegen und Vorgeschichte</li>
+          <li>Anhaltspunkte für ADHS einordnen</li>
+          <li>Klare Empfehlung: weiter — ja oder nein</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- R5 Koralle -->
+  <section class="strip t-r5">
+    <div class="strip__head">
+      <span class="strip__variant">R5</span>
+      <h2 class="strip__name">Koralle</h2>
+      <span class="strip__hex">#C77370 · leichter, freundlicher, weiblicher</span>
+    </div>
+    <div class="strip__demo">
+      <div>
+        <span class="demo__eyebrow">ADHS-Diagnostik · Erwachsene</span>
+        <h3 class="demo__h1">Klarheit in Wochen, <em>nicht in Monaten.</em></h3>
+        <p class="demo__lead">Online oder vor Ort in Frankfurt-Nordend. Du startest mit einer 30-minütigen Ersteinschätzung.</p>
+        <div class="demo__ctas">
+          <a href="#" class="btn--primary">Selbsttest starten →</a>
+          <a href="#" class="btn--text">Ersteinschätzung anfragen</a>
+        </div>
+      </div>
+      <div class="demo__price-card">
+        <span class="demo__price-label">Hier startest du</span>
+        <h4 class="demo__price-name">Ersteinschätzung</h4>
+        <div class="demo__price-amount">123,34 €</div>
+        <p class="demo__price-meta">50 Min · online oder vor Ort</p>
+        <ul class="demo__price-list">
+          <li>Anliegen und Vorgeschichte</li>
+          <li>Anhaltspunkte für ADHS einordnen</li>
+          <li>Klare Empfehlung: weiter — ja oder nein</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- R6 Mauve -->
+  <section class="strip t-r6">
+    <div class="strip__head">
+      <span class="strip__variant">R6</span>
+      <h2 class="strip__name">Mauve</h2>
+      <span class="strip__hex">#8F5757 · kühlerer Rot-Ton, fast Pflaume, gedämpft</span>
+    </div>
+    <div class="strip__demo">
+      <div>
+        <span class="demo__eyebrow">ADHS-Diagnostik · Erwachsene</span>
+        <h3 class="demo__h1">Klarheit in Wochen, <em>nicht in Monaten.</em></h3>
+        <p class="demo__lead">Online oder vor Ort in Frankfurt-Nordend. Du startest mit einer 30-minütigen Ersteinschätzung.</p>
+        <div class="demo__ctas">
+          <a href="#" class="btn--primary">Selbsttest starten →</a>
+          <a href="#" class="btn--text">Ersteinschätzung anfragen</a>
+        </div>
+      </div>
+      <div class="demo__price-card">
+        <span class="demo__price-label">Hier startest du</span>
+        <h4 class="demo__price-name">Ersteinschätzung</h4>
+        <div class="demo__price-amount">123,34 €</div>
+        <p class="demo__price-meta">50 Min · online oder vor Ort</p>
+        <ul class="demo__price-list">
+          <li>Anliegen und Vorgeschichte</li>
+          <li>Anhaltspunkte für ADHS einordnen</li>
+          <li>Klare Empfehlung: weiter — ja oder nein</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="variant-tag">Rot-Tönen · E3 <a href="index.html">↑ zurück</a></div>
+</body>
+</html>
