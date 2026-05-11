@@ -121,6 +121,80 @@ ul, ol { padding-left: var(--sp-6); margin: 0 0 var(--sp-4) 0; }
   border-bottom: 1px solid var(--border);
 }
 
+/* ===== Site Navigation ===== */
+.site-nav {
+  padding: var(--sp-6) 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: saturate(180%) blur(8px);
+  -webkit-backdrop-filter: saturate(180%) blur(8px);
+  background: rgba(251, 250, 247, 0.85);
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--sp-6);
+}
+.nav__brand {
+  font-family: "Fraunces", Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  border: 0;
+  padding: 0;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.nav__brand:hover { color: var(--accent); border: 0; }
+.nav__meta {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-6);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.005em;
+}
+.nav__location {
+  color: var(--text-muted);
+}
+.nav__link {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.nav__link:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+.nav__cta {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--text);
+  padding-bottom: 1px;
+  font-weight: 500;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.nav__cta:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+@media (max-width: 640px) {
+  .nav { gap: var(--sp-3); }
+  .nav__location { display: none; }
+  .nav__meta { gap: var(--sp-4); }
+}
+@media (max-width: 480px) {
+  .nav__link { display: none; }
+}
+
 /* ===== Eyebrow (uppercase letterspaced accent label) ===== */
 .pill {
   display: inline-block;
