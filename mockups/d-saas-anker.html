@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>D · SaaS-Anker (aktuelle Seite) — ADHS-Diagnostik Frankfurt</title>
+<style>
+  :root{
+    --bg:#ffffff;--bg-soft:#f8fafb;--text:#0a0a0a;--text-body:#444;
+    --text-muted:#777;--accent:#1a56db;--accent-soft:#e8f0fe;
+    --accent-highlight:#ffe066;--border:#e5e7eb;--success:#16a34a;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  body{
+    margin:0;font-family:system-ui,-apple-system,"Inter","Helvetica Neue",sans-serif;
+    font-size:16px;line-height:1.6;color:var(--text-body);background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+  .nav{padding:20px 0;display:flex;justify-content:space-between;align-items:center;font-size:14px}
+  .nav__brand{font-weight:700;color:var(--text);font-size:16px}
+
+  .hero{padding:64px 0 96px}
+  .hero__grid{display:grid;grid-template-columns:1fr;gap:32px;align-items:center}
+  @media(min-width:768px){.hero__grid{grid-template-columns:1.1fr 1fr;gap:48px}}
+
+  .pill{
+    display:inline-block;background:var(--accent-soft);color:var(--accent);
+    padding:5px 12px;border-radius:999px;font-size:13px;font-weight:600;margin-bottom:12px;
+  }
+  h1{
+    font-size:clamp(28px,5vw,48px);font-weight:700;line-height:1.15;
+    letter-spacing:-0.02em;color:var(--text);margin:0 0 16px;
+  }
+  .hl{
+    background:linear-gradient(180deg,transparent 60%,var(--accent-highlight) 60%);
+    padding:0 4px;
+  }
+  .lead{font-size:18px;color:var(--text-body);margin:0 0 24px;max-width:540px}
+  .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}
+  .btn{
+    display:inline-block;padding:14px 24px;border-radius:8px;font-size:14px;
+    font-weight:600;letter-spacing:0.2px;text-decoration:none;border:1px solid transparent;
+    transition:opacity .15s ease;
+  }
+  .btn:hover{opacity:.92}
+  .btn--primary{background:var(--accent);color:#fff}
+  .btn--secondary{background:transparent;color:var(--accent);border-color:var(--accent)}
+  .trust{
+    display:flex;flex-wrap:wrap;gap:16px;padding-top:16px;
+    border-top:1px solid var(--border);font-size:13px;color:var(--text-muted);
+  }
+  .trust span::before{content:"✓ ";color:var(--success);font-weight:700}
+
+  .photo{
+    background:linear-gradient(160deg,#e8f0fe,#1a56db);
+    aspect-ratio:4/5;border-radius:12px;display:grid;place-items:center;
+    color:rgba(255,255,255,.6);font-size:13px;letter-spacing:0.05em;
+  }
+
+  .section--soft{background:var(--bg-soft);padding:96px 0}
+  .section--soft h2{
+    font-size:clamp(24px,3.2vw,36px);font-weight:700;line-height:1.15;
+    letter-spacing:-0.02em;color:var(--text);margin:0 0 48px;text-align:center;
+  }
+  .cols{display:grid;grid-template-columns:1fr;gap:32px}
+  @media(min-width:768px){.cols{grid-template-columns:repeat(3,1fr)}}
+  .col__icon{font-size:32px;margin-bottom:12px;display:inline-block}
+  .col h3{font-size:22px;font-weight:700;margin:0 0 8px;color:var(--text)}
+  .col p{font-size:15px;margin:0;color:var(--text-body)}
+
+  .variant-tag{
+    position:fixed;bottom:24px;left:24px;background:var(--text);color:#fff;
+    padding:8px 14px;border-radius:6px;font-size:12px;letter-spacing:0.08em;
+    text-transform:uppercase;z-index:100;font-weight:600;
+  }
+  .variant-tag a{color:#fff;text-decoration:none;opacity:.6;margin-left:12px}
+  .variant-tag a:hover{opacity:1}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav">
+      <div class="nav__brand">Praxis Schleich</div>
+      <div style="font-size:14px;color:var(--text-muted)">Frankfurt-Nordend</div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero__grid">
+        <div>
+          <span class="pill">⚡ Termine in 1–2 Wochen</span>
+          <h1>Du wartest seit Monaten auf Klarheit. <span class="hl">Wir starten in zwei Wochen.</span></h1>
+          <p class="lead">ADHS-Diagnostik für Erwachsene — online, in unserer Praxis im Frankfurter Nordend oder beides. Du startest mit einer Ersteinschätzung — und entscheidest danach, ob die volle Diagnostik dein nächster Schritt ist.</p>
+          <div class="ctas">
+            <a href="#test" class="btn btn--primary">Kostenlosen Selbsttest starten</a>
+            <a href="#termin" class="btn btn--secondary">Ersteinschätzung buchen →</a>
+          </div>
+          <div class="trust">
+            <span>Ersteinschätzung ab 123 €</span>
+            <span>Approbierte Therapeutin</span>
+            <span>DSGVO-konform</span>
+            <span>Termin in 1–2 Wochen</span>
+          </div>
+        </div>
+        <div class="photo">Foto: Praxis Nordend</div>
+      </div>
+    </section>
+  </div>
+
+  <section class="section--soft">
+    <div class="wrap">
+      <h2>Nicht nur Diagnose. Nicht nur online. Nicht nur Frankfurt.</h2>
+      <div class="cols">
+        <div class="col">
+          <span class="col__icon">⚡</span>
+          <h3>Online, wenn's passt</h3>
+          <p>Du wählst Online, Praxis oder Mix — je nach Termin und Lebenslage.</p>
+        </div>
+        <div class="col">
+          <span class="col__icon">👤</span>
+          <h3>Eine Therapeutin durchgehend</h3>
+          <p>Von Ersteinschätzung bis Befund dieselbe Person — keine Plattform-Logik.</p>
+        </div>
+        <div class="col">
+          <span class="col__icon">🔗</span>
+          <h3>Behandlung mitgedacht</h3>
+          <p>Falls Therapie folgt, planen wir sie schon in der Diagnostik mit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="variant-tag">D · SaaS (Status quo) <a href="index.html">↑ zurück</a></div>
+</body>
+</html>

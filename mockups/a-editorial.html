@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A · Editorial Praxis — ADHS-Diagnostik Frankfurt</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#faf8f4;
+    --paper:#ffffff;
+    --ink:#1a1d1a;
+    --ink-soft:#4a4d48;
+    --ink-muted:#7a7d77;
+    --accent:#9c4a32;
+    --accent-soft:#f1e3dc;
+    --rule:#e5e1d6;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:16px;
+    line-height:1.65;
+    color:var(--ink-soft);
+    background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+  .nav{padding:32px 0;display:flex;justify-content:space-between;align-items:center;font-size:14px}
+  .nav__brand{font-family:"Fraunces",serif;font-size:18px;color:var(--ink);font-weight:500;letter-spacing:-0.01em}
+  .nav__brand em{font-style:italic;color:var(--accent)}
+  .nav__meta{color:var(--ink-muted)}
+  .nav__meta a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink)}
+
+  .hero{padding:64px 0 96px}
+  .hero__grid{display:grid;grid-template-columns:1fr;gap:48px;align-items:start}
+  @media(min-width:880px){.hero__grid{grid-template-columns:1.15fr 1fr;gap:80px}}
+
+  .eyebrow{
+    font-size:13px;text-transform:uppercase;letter-spacing:0.14em;
+    color:var(--accent);font-weight:500;margin-bottom:24px;display:inline-block;
+  }
+  h1{
+    font-family:"Fraunces",serif;
+    font-weight:400;
+    font-size:clamp(40px,5.5vw,68px);
+    line-height:1.05;
+    letter-spacing:-0.02em;
+    color:var(--ink);
+    margin:0 0 28px;
+    max-width:14ch;
+  }
+  h1 em{font-style:italic;font-weight:400;color:var(--accent)}
+  .lead{font-size:19px;line-height:1.55;max-width:46ch;margin:0 0 36px;color:var(--ink-soft)}
+  .ctas{display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin-bottom:48px}
+  .btn{
+    display:inline-block;padding:16px 28px;border-radius:2px;
+    font-size:15px;font-weight:500;letter-spacing:0.01em;
+    text-decoration:none;transition:all .2s ease;
+  }
+  .btn--primary{background:var(--ink);color:var(--bg)}
+  .btn--primary:hover{background:var(--accent)}
+  .btn--ghost{color:var(--ink);border-bottom:1px solid var(--ink);padding:0 0 2px;border-radius:0}
+  .btn--ghost:hover{color:var(--accent);border-color:var(--accent)}
+
+  .trust{
+    font-size:13px;color:var(--ink-muted);line-height:1.8;
+    border-top:1px solid var(--rule);padding-top:20px;max-width:46ch;
+  }
+  .trust span{display:inline}
+  .trust span+span::before{content:" · ";color:var(--rule);margin:0 4px}
+
+  .portrait{
+    background:linear-gradient(180deg,#d8c5b8 0%,#b89a86 100%);
+    aspect-ratio:4/5;border-radius:2px;
+    position:relative;overflow:hidden;
+    box-shadow:0 30px 60px -20px rgba(40,30,20,.25);
+  }
+  .portrait::after{
+    content:"Portrait Katarina Schleich";
+    position:absolute;bottom:24px;left:24px;
+    font-size:12px;color:rgba(255,255,255,.7);letter-spacing:0.1em;text-transform:uppercase;
+  }
+  .portrait__caption{
+    margin-top:20px;font-family:"Fraunces",serif;font-style:italic;
+    font-size:15px;color:var(--ink-soft);line-height:1.5;max-width:38ch;
+  }
+  .portrait__caption strong{font-style:normal;font-weight:500;color:var(--ink);display:block;margin-bottom:4px}
+
+  /* second section: editorial intro */
+  .intro{padding:96px 0;border-top:1px solid var(--rule);background:var(--paper)}
+  .intro__grid{display:grid;grid-template-columns:1fr;gap:48px}
+  @media(min-width:880px){.intro__grid{grid-template-columns:1fr 1.6fr;gap:80px}}
+  .intro__label{font-family:"Fraunces",serif;font-style:italic;font-size:17px;color:var(--accent);font-weight:400}
+  .intro h2{
+    font-family:"Fraunces",serif;font-weight:400;
+    font-size:clamp(28px,3.2vw,40px);line-height:1.2;letter-spacing:-0.015em;
+    color:var(--ink);margin:0 0 32px;max-width:22ch;
+  }
+  .intro h2 em{font-style:italic;color:var(--accent)}
+  .intro p{font-size:17px;line-height:1.7;margin:0 0 20px;max-width:58ch}
+  .intro p:last-child{margin-bottom:0}
+
+  .signature{
+    margin-top:40px;display:flex;align-items:center;gap:16px;
+    padding-top:24px;border-top:1px solid var(--rule);
+  }
+  .signature__avatar{
+    width:48px;height:48px;border-radius:50%;
+    background:linear-gradient(135deg,#d8c5b8,#9c4a32);
+  }
+  .signature__name{font-family:"Fraunces",serif;font-size:16px;color:var(--ink);font-weight:500}
+  .signature__role{font-size:13px;color:var(--ink-muted)}
+
+  /* mockup variant label */
+  .variant-tag{
+    position:fixed;bottom:24px;left:24px;background:var(--ink);color:var(--bg);
+    padding:8px 14px;border-radius:2px;font-size:12px;letter-spacing:0.1em;
+    text-transform:uppercase;z-index:100;font-weight:500;
+  }
+  .variant-tag a{color:var(--bg);text-decoration:none;opacity:.6;margin-left:12px}
+  .variant-tag a:hover{opacity:1}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav">
+      <div class="nav__brand">Praxis Schleich <em>· Frankfurt</em></div>
+      <div class="nav__meta">Rappstr. 7–9 · <a href="#termin">Termin</a></div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero__grid">
+        <div>
+          <span class="eyebrow">ADHS-Diagnostik für Erwachsene</span>
+          <h1>13&nbsp;Monate Wartezeit sind <em>zu lang</em> für Klarheit.</h1>
+          <p class="lead">In Frankfurt-Nordend oder online. Du startest mit einer Ersteinschätzung — und entscheidest dann, ob die volle Diagnostik dein nächster Schritt ist.</p>
+          <div class="ctas">
+            <a href="#termin" class="btn btn--primary">Ersteinschätzung anfragen</a>
+            <a href="#test" class="btn btn--ghost">Kostenloser Selbsttest</a>
+          </div>
+          <div class="trust">
+            <span>Approbierte Psychotherapeutin</span>
+            <span>Ersteinschätzung ab 123&nbsp;€</span>
+            <span>Termin in 1–2 Wochen</span>
+            <span>GOP-Abrechnung</span>
+          </div>
+        </div>
+        <div>
+          <div class="portrait"></div>
+          <p class="portrait__caption">
+            <strong>Dipl.-Psych. Katarina Schleich</strong>
+            „Du bekommst dieselbe Person von der Ersteinschätzung bis zum Befund."
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="intro">
+    <div class="wrap">
+      <div class="intro__grid">
+        <div class="intro__label">Was dich hier erwartet</div>
+        <div>
+          <h2>Keine Plattform. Keine Pakete <em>auf Verdacht</em>. Eine Praxis.</h2>
+          <p>Wir starten klein: 50 Minuten, eine echte Therapeutin, ein Gespräch. Wenn sich die Vollständige Diagnostik daraus ergibt, planen wir sie gemeinsam — wenn nicht, sparst du dir die Zeit und das Geld.</p>
+          <p>Falls eine Behandlung folgt, denken wir sie schon in der Diagnostik mit. Statt dich mit einem Befund und einer Liste von Empfehlungen alleine zu lassen.</p>
+          <div class="signature">
+            <div class="signature__avatar"></div>
+            <div>
+              <div class="signature__name">Katarina Schleich</div>
+              <div class="signature__role">Approbierte Psychologische Psychotherapeutin</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="variant-tag">A · Editorial <a href="index.html">↑ zurück</a></div>
+</body>
+</html>

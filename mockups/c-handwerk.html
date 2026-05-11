@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C · Vertrauen durch Handwerk — ADHS-Diagnostik Frankfurt</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fbf8f2;
+    --paper:#ffffff;
+    --ink:#241b14;
+    --ink-soft:#4d3f33;
+    --ink-muted:#86796a;
+    --accent:#5a2a3c;
+    --accent-soft:#e8d8de;
+    --rule:#dfd6c4;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:"Source Serif 4",Georgia,serif;
+    font-size:18px;line-height:1.65;color:var(--ink-soft);
+    background:var(--bg);-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:980px;margin:0 auto;padding:0 32px}
+
+  .masthead{
+    border-bottom:1px solid var(--rule);padding:20px 0;
+    display:flex;justify-content:space-between;align-items:baseline;
+    font-size:14px;color:var(--ink-muted);
+  }
+  .masthead__brand{
+    font-size:18px;color:var(--ink);font-weight:600;letter-spacing:-0.01em;
+  }
+  .masthead__brand small{
+    display:block;font-size:12px;font-weight:400;color:var(--ink-muted);
+    text-transform:uppercase;letter-spacing:0.12em;margin-top:2px;
+  }
+  .masthead__meta a{color:var(--ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+
+  .hero{padding:80px 0 64px;text-align:left}
+  .dateline{
+    font-size:13px;text-transform:uppercase;letter-spacing:0.15em;
+    color:var(--ink-muted);margin-bottom:32px;
+  }
+  .dateline strong{color:var(--accent);font-weight:600}
+  h1{
+    font-family:"Source Serif 4",Georgia,serif;
+    font-weight:500;
+    font-size:clamp(40px,5.5vw,72px);
+    line-height:1.05;letter-spacing:-0.025em;color:var(--ink);
+    margin:0 0 32px;max-width:18ch;
+  }
+  h1 em{font-style:italic;font-weight:400;color:var(--accent)}
+  .standfirst{
+    font-size:21px;line-height:1.55;color:var(--ink-soft);
+    max-width:54ch;margin:0 0 48px;font-weight:400;
+  }
+  .standfirst::first-letter{
+    font-size:62px;float:left;line-height:0.85;padding:8px 12px 0 0;
+    font-weight:600;color:var(--accent);
+  }
+
+  .byline{
+    display:flex;align-items:center;gap:16px;
+    padding:20px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+    margin-bottom:48px;max-width:540px;
+  }
+  .byline__avatar{
+    width:48px;height:48px;border-radius:50%;
+    background:linear-gradient(135deg,#d8c5b8,#5a2a3c);flex-shrink:0;
+  }
+  .byline__name{font-size:15px;color:var(--ink);font-weight:600;line-height:1.3}
+  .byline__role{font-size:13px;color:var(--ink-muted);font-style:italic}
+
+  .actions{display:flex;gap:32px;align-items:baseline;flex-wrap:wrap;margin-bottom:24px}
+  .btn{
+    display:inline-block;padding:16px 28px;
+    background:var(--ink);color:var(--bg);
+    text-decoration:none;font-family:"Source Serif 4",serif;
+    font-size:16px;font-weight:600;
+    transition:background .2s ease;
+  }
+  .btn:hover{background:var(--accent)}
+  .link{
+    color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;
+    text-underline-offset:5px;font-size:16px;font-weight:500;
+  }
+  .link:hover{color:var(--ink)}
+
+  .footnote{
+    font-size:14px;color:var(--ink-muted);font-style:italic;
+    border-left:2px solid var(--accent);padding-left:16px;max-width:54ch;
+  }
+
+  /* second section: letter from Katarina */
+  .letter{padding:96px 0;background:var(--paper);border-top:1px solid var(--rule)}
+  .letter__inner{max-width:680px;margin:0 auto;padding:0 32px}
+  .letter__label{
+    font-size:13px;text-transform:uppercase;letter-spacing:0.15em;
+    color:var(--accent);font-weight:600;margin-bottom:24px;
+  }
+  .letter h2{
+    font-family:"Source Serif 4",serif;font-weight:500;font-style:italic;
+    font-size:clamp(28px,3.2vw,40px);line-height:1.25;color:var(--ink);
+    margin:0 0 32px;letter-spacing:-0.02em;
+  }
+  .letter p{
+    font-size:18px;line-height:1.75;margin:0 0 20px;color:var(--ink-soft);
+  }
+  .letter__sign{
+    margin-top:40px;font-style:italic;
+    font-size:17px;color:var(--ink);
+  }
+  .letter__sign-name{
+    font-family:"Source Serif 4",serif;font-size:24px;font-style:italic;
+    color:var(--accent);font-weight:500;display:block;margin-top:8px;
+  }
+
+  .ornament{
+    text-align:center;color:var(--rule);
+    font-size:24px;margin:48px 0;letter-spacing:1em;
+  }
+
+  .variant-tag{
+    position:fixed;bottom:24px;left:24px;background:var(--ink);color:var(--bg);
+    padding:8px 14px;font-size:12px;letter-spacing:0.1em;
+    text-transform:uppercase;z-index:100;font-weight:600;
+  }
+  .variant-tag a{color:var(--bg);text-decoration:none;opacity:.6;margin-left:12px}
+  .variant-tag a:hover{opacity:1}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="masthead">
+      <div class="masthead__brand">
+        Praxis Schleich
+        <small>Psychotherapie · Frankfurt</small>
+      </div>
+      <div class="masthead__meta">
+        Rappstr. 7–9, Nordend · <a href="#termin">Termin anfragen</a>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="dateline">ADHS-Diagnostik bei Erwachsenen <strong>· Termin in 1–2 Wochen</strong></div>
+      <h1>13&nbsp;Monate auf Klarheit zu warten — <em>finde ich zu lang.</em></h1>
+      <p class="standfirst">Deshalb biete ich in meiner Praxis im Frankfurter Nordend eine ADHS-Diagnostik für Erwachsene an, die in Wochen statt Monaten startet. Online, vor Ort oder beides. Du beginnst mit einer Ersteinschätzung — und entscheidest danach, ob die volle Diagnostik dein nächster Schritt ist.</p>
+
+      <div class="byline">
+        <div class="byline__avatar"></div>
+        <div>
+          <div class="byline__name">Dipl.-Psych. Katarina Schleich</div>
+          <div class="byline__role">Approbierte Psychologische Psychotherapeutin</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a href="#termin" class="btn">Ersteinschätzung anfragen</a>
+        <a href="#test" class="link">Erst den Selbsttest machen →</a>
+      </div>
+      <p class="footnote">Ersteinschätzung 50&nbsp;Min · ab 123,34&nbsp;€ · GOP-konforme Rechnung für PKV und Beihilfe</p>
+    </section>
+  </div>
+
+  <section class="letter">
+    <div class="letter__inner">
+      <div class="letter__label">Brief der Therapeutin</div>
+      <h2>Was du hier nicht bekommst — und warum das wichtig ist.</h2>
+      <p>Du bekommst keine Komplettpakete auf Verdacht. Keine wechselnden Behandelnden. Keine anonyme Plattform. Wir starten mit 50&nbsp;Minuten, einem echten Gespräch und einer ehrlichen Einschätzung, ob die volle Diagnostik bei dir Sinn ergibt.</p>
+      <p>Wenn sie es tut, planen wir sie gemeinsam, und ich begleite dich durch. Wenn sie es nicht tut, sparst du dir Zeit und Geld — und bekommst wenigstens eine fundierte Orientierung darüber, was sonst infrage kommt.</p>
+      <p>Und falls auf die Diagnose eine Behandlung folgt: Wir denken sie schon in der Diagnostik mit. Statt dich mit einem Befund und einer Empfehlungsliste auf eine zweite Suche zu schicken.</p>
+      <div class="ornament">· · ·</div>
+      <div class="letter__sign">
+        Bis bald,
+        <span class="letter__sign-name">Katarina</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="variant-tag">C · Handwerk <a href="index.html">↑ zurück</a></div>
+</body>
+</html>

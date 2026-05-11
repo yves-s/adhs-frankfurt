@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E2 · Sage Minimal — ADHS-Diagnostik Frankfurt</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #FBFAF7;
+    --surface: #FFFFFF;
+    --ink: #1A1715;
+    --ink-soft: #4A4540;
+    --ink-muted: #8A847C;
+    --hairline: #E6E5DE;
+    --accent: #7A8B6F;
+    --accent-soft: #E8EDE2;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:"Outfit",system-ui,sans-serif;
+    font-size:16px;line-height:1.7;
+    color:var(--ink-soft);
+    background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+    font-weight:400;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+  @media(max-width:640px){.wrap{padding:0 20px}}
+
+  /* NAV */
+  .nav{
+    padding:32px 0;display:flex;justify-content:space-between;align-items:baseline;
+    font-size:14px;letter-spacing:0.01em;
+  }
+  .nav__brand{
+    font-family:"Fraunces",serif;font-style:italic;font-weight:400;
+    color:var(--ink);font-size:19px;letter-spacing:-0.01em;
+  }
+  .nav__meta{color:var(--ink-muted);font-size:13px}
+  .nav__meta a{
+    color:var(--ink);text-decoration:none;
+    border-bottom:1px solid var(--ink);padding-bottom:1px;
+    transition:color .2s ease, border-color .2s ease;
+  }
+  .nav__meta a:hover{color:var(--accent);border-color:var(--accent)}
+
+  /* HERO */
+  .hero{padding:72px 0 128px;position:relative}
+  .hero__grid{
+    display:grid;grid-template-columns:1fr;gap:64px;align-items:start;
+  }
+  @media(min-width:920px){
+    .hero__grid{grid-template-columns:1.4fr 1fr;gap:96px}
+  }
+
+  .eyebrow{
+    font-family:"Outfit",sans-serif;font-size:12px;font-weight:500;
+    letter-spacing:0.18em;text-transform:uppercase;
+    color:var(--accent);margin-bottom:32px;display:inline-block;
+  }
+
+  h1{
+    font-family:"Fraunces",serif;font-style:italic;font-weight:300;
+    font-size:clamp(40px,5.5vw,68px);line-height:1.05;letter-spacing:-0.025em;
+    color:var(--ink);margin:0 0 32px;
+  }
+
+  .lead{
+    font-size:18px;line-height:1.7;
+    max-width:52ch;margin:0 0 44px;
+    color:var(--ink-soft);font-weight:400;
+  }
+
+  .ctas{display:flex;gap:32px;align-items:center;flex-wrap:wrap;margin-bottom:52px}
+  .btn--primary{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:16px 28px;border-radius:999px;
+    background:var(--ink);color:var(--bg);
+    font-size:15px;font-weight:500;letter-spacing:0.01em;
+    text-decoration:none;
+    transition:transform .15s ease, background .2s ease;
+  }
+  .btn--primary:hover{background:var(--accent);transform:translateY(-1px)}
+  .btn--primary:active{transform:translateY(0)}
+  .btn--text{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:15px;font-weight:500;color:var(--ink);
+    text-decoration:none;border-bottom:1px solid var(--ink);
+    padding-bottom:2px;
+    transition:color .2s ease, border-color .2s ease;
+  }
+  .btn--text:hover{color:var(--accent);border-color:var(--accent)}
+
+  .trust{
+    display:flex;flex-wrap:wrap;align-items:center;
+    font-size:13px;color:var(--ink-muted);letter-spacing:0.01em;
+    gap:0;
+  }
+  .trust > span{display:inline-flex;align-items:center}
+  .trust > span:not(:last-child)::after{
+    content:"";width:3px;height:3px;border-radius:50%;
+    background:var(--hairline);margin:0 18px;display:inline-block;
+  }
+
+  /* PORTRAIT */
+  .portrait{position:relative;width:100%}
+  .portrait__frame{
+    aspect-ratio:3/4;
+    background:
+      linear-gradient(165deg,#EFE9DD 0%,#D6DCC9 38%,#9DAB8E 78%,#7A8B6F 100%);
+    border-radius:2px;
+    position:relative;
+  }
+  .portrait__caption{
+    margin-top:24px;
+    display:flex;flex-direction:column;gap:4px;
+    padding-left:2px;
+  }
+  .portrait__caption strong{
+    font-family:"Outfit",sans-serif;font-weight:500;
+    font-size:15px;color:var(--ink);letter-spacing:-0.005em;
+  }
+  .portrait__caption span{font-size:13px;color:var(--ink-muted);letter-spacing:0.01em}
+
+  /* PILLARS */
+  .pillars{
+    padding:128px 0;background:var(--surface);
+    border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);
+  }
+  .pillars__intro{max-width:620px;margin:0 0 88px}
+  .pillars h2{
+    font-family:"Fraunces",serif;font-style:italic;font-weight:300;
+    font-size:clamp(28px,3.8vw,44px);line-height:1.15;
+    letter-spacing:-0.02em;color:var(--ink);margin:0 0 20px;
+  }
+  .pillars__sub{
+    font-size:17px;color:var(--ink-muted);margin:0;
+    max-width:48ch;line-height:1.6;
+  }
+
+  .pillar-list{display:flex;flex-direction:column}
+  .pillar{
+    display:grid;grid-template-columns:1fr;gap:14px;
+    padding:48px 0;border-top:1px solid var(--hairline);
+  }
+  .pillar:last-child{border-bottom:1px solid var(--hairline)}
+  @media(min-width:820px){
+    .pillar{
+      grid-template-columns: 88px 1.1fr 2fr;
+      gap:48px;align-items:start;
+    }
+  }
+  .pillar__num{
+    font-family:"Fraunces",serif;font-style:italic;font-weight:300;
+    font-size:34px;color:var(--accent);line-height:1;letter-spacing:-0.02em;
+  }
+  .pillar__title{
+    font-family:"Outfit",sans-serif;font-weight:500;
+    font-size:18px;line-height:1.35;color:var(--ink);
+    margin:0;letter-spacing:-0.005em;
+  }
+  .pillar__body{
+    font-size:16px;line-height:1.7;color:var(--ink-soft);margin:0;
+    max-width:54ch;
+  }
+
+  /* CLOSING NOTE (small editorial signature line) */
+  .signature{padding:120px 0 88px}
+  .signature__inner{
+    display:grid;grid-template-columns:1fr;gap:24px;align-items:end;
+    border-top:1px solid var(--hairline);padding-top:48px;
+  }
+  @media(min-width:780px){
+    .signature__inner{grid-template-columns:2fr 1fr;gap:64px}
+  }
+  .signature__quote{
+    font-family:"Fraunces",serif;font-style:italic;font-weight:300;
+    font-size:clamp(22px,2.4vw,28px);line-height:1.4;letter-spacing:-0.015em;
+    color:var(--ink);margin:0;max-width:30ch;
+  }
+  .signature__meta{
+    font-size:13px;color:var(--ink-muted);
+    display:flex;flex-direction:column;gap:6px;
+    letter-spacing:0.01em;
+  }
+  .signature__meta strong{
+    font-family:"Outfit",sans-serif;font-weight:500;
+    color:var(--ink);font-size:14px;letter-spacing:-0.005em;
+  }
+
+  /* VARIANT TAG */
+  .variant-tag{
+    position:fixed;bottom:24px;left:24px;background:var(--ink);color:var(--bg);
+    padding:10px 16px;border-radius:999px;font-size:11px;letter-spacing:0.12em;
+    text-transform:uppercase;z-index:100;font-weight:500;
+  }
+  .variant-tag a{color:var(--bg);text-decoration:none;opacity:.6;margin-left:14px}
+  .variant-tag a:hover{opacity:1}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav">
+      <div class="nav__brand">Praxis Schleich</div>
+      <div class="nav__meta">Frankfurt-Nordend &nbsp;·&nbsp; <a href="#termin">Termin anfragen</a></div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero__grid">
+        <div>
+          <span class="eyebrow">ADHS-Diagnostik · Erwachsene</span>
+          <h1>Klarheit in Wochen, nicht in Monaten.</h1>
+          <p class="lead">Eine Diagnostik, die sich Zeit nimmt — ohne dich Monate warten zu lassen. Online, in der Praxis im Frankfurter Nordend, oder beides. Du beginnst mit einer Ersteinschätzung und entscheidest danach, ob der nächste Schritt für dich passt.</p>
+          <div class="ctas">
+            <a href="#test" class="btn--primary">Selbsttest starten →</a>
+            <a href="#termin" class="btn--text">Ersteinschätzung anfragen</a>
+          </div>
+          <div class="trust">
+            <span>Approbierte Psychotherapeutin</span>
+            <span>Ab 123 € Ersteinschätzung</span>
+            <span>GOP-Rechnung für PKV / Beihilfe</span>
+          </div>
+        </div>
+        <div class="portrait">
+          <div class="portrait__frame" aria-label="Portrait Katarina Schleich (Platzhalter)"></div>
+          <div class="portrait__caption">
+            <strong>Katarina Schleich</strong>
+            <span>Approbierte Psychotherapeutin · VT / Schematherapie</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="pillars">
+    <div class="wrap">
+      <div class="pillars__intro">
+        <span class="eyebrow">Was diese Praxis anders macht</span>
+        <h2>Nicht nur Diagnose. Nicht nur online. Nicht nur Frankfurt.</h2>
+        <p class="pillars__sub">Drei Dinge, die bei den meisten Anbietern nicht zusammenkommen — und für die wir uns hier bewusst Zeit nehmen.</p>
+      </div>
+      <div class="pillar-list">
+        <article class="pillar">
+          <div class="pillar__num">01</div>
+          <h3 class="pillar__title">Termin in ein bis zwei Wochen</h3>
+          <p class="pillar__body">Statt dreizehn Monaten Wartezeit im Kassensystem. Eine echte Praxis, keine anonyme Plattform — und du sprichst von Anfang an mit derselben Person.</p>
+        </article>
+        <article class="pillar">
+          <div class="pillar__num">02</div>
+          <h3 class="pillar__title">Dieselbe Person, durchgehend</h3>
+          <p class="pillar__body">Von der Ersteinschätzung bis zur Befundbesprechung. Keine wechselnden Behandelnden, kein Erklären von vorne, kein Gefühl, durch ein System geschoben zu werden.</p>
+        </article>
+        <article class="pillar">
+          <div class="pillar__num">03</div>
+          <h3 class="pillar__title">Anschluss-Behandlung mitgedacht</h3>
+          <p class="pillar__body">Falls eine Therapie folgt, planen wir sie schon während der Diagnostik mit — statt dich nach dem Befund alleine zu lassen mit der Frage, was jetzt.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <section class="signature">
+      <div class="signature__inner">
+        <p class="signature__quote">„Eine Diagnose ist kein Etikett, sondern der Anfang einer ehrlicheren Beziehung zu dir selbst."</p>
+        <div class="signature__meta">
+          <strong>Katarina Schleich</strong>
+          <span>Praxisinhaberin, Frankfurt-Nordend</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="variant-tag">E2 · Sage Minimal <a href="index.html">↑ zurück</a></div>
+</body>
+</html>

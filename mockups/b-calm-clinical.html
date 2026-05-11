@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B · Calm Clinical — ADHS-Diagnostik Frankfurt</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f4f1ec;
+    --paper:#ffffff;
+    --ink:#1d2a26;
+    --ink-soft:#3f4e49;
+    --ink-muted:#7a8783;
+    --accent:#2d6358;
+    --accent-soft:#d9e6e2;
+    --accent-warm:#e9b96b;
+    --rule:#d8d2c7;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:16px;line-height:1.6;color:var(--ink-soft);
+    background:var(--bg);-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+
+  .nav{
+    padding:24px 0;display:flex;justify-content:space-between;align-items:center;
+    font-size:14px;
+  }
+  .nav__brand{font-weight:600;color:var(--ink);font-size:15px;display:flex;align-items:center;gap:10px}
+  .nav__dot{width:10px;height:10px;border-radius:50%;background:var(--accent)}
+  .nav__meta{color:var(--ink-muted)}
+  .nav__meta a{color:var(--ink);text-decoration:none;font-weight:500}
+
+  .hero{padding:48px 0 96px;position:relative;overflow:hidden}
+  .hero__blob{
+    position:absolute;top:-100px;right:-200px;width:700px;height:700px;
+    background:radial-gradient(circle,var(--accent-soft) 0%,transparent 70%);
+    z-index:0;pointer-events:none;
+  }
+  .hero__blob--2{
+    position:absolute;bottom:-200px;left:-100px;width:500px;height:500px;
+    background:radial-gradient(circle,rgba(233,185,107,.25) 0%,transparent 70%);
+    z-index:0;pointer-events:none;
+  }
+  .hero__grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:40px;align-items:center}
+  @media(min-width:880px){.hero__grid{grid-template-columns:1.1fr 1fr;gap:64px}}
+
+  .badge{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--paper);border:1px solid var(--rule);
+    padding:8px 14px;border-radius:999px;font-size:13px;font-weight:500;color:var(--ink);
+    margin-bottom:24px;
+    box-shadow:0 1px 2px rgba(0,0,0,.03);
+  }
+  .badge__dot{width:6px;height:6px;border-radius:50%;background:var(--accent);position:relative}
+  .badge__dot::after{
+    content:"";position:absolute;inset:-4px;border-radius:50%;
+    background:var(--accent);opacity:.3;animation:pulse 2s infinite;
+  }
+  @keyframes pulse{0%,100%{transform:scale(1);opacity:.3}50%{transform:scale(1.4);opacity:0}}
+
+  h1{
+    font-family:"Fraunces",serif;font-weight:500;
+    font-size:clamp(38px,5vw,60px);line-height:1.08;letter-spacing:-0.02em;
+    color:var(--ink);margin:0 0 24px;
+  }
+  h1 .underline{
+    background-image:linear-gradient(transparent 65%,var(--accent-warm) 65%,var(--accent-warm) 92%,transparent 92%);
+    padding:0 2px;
+  }
+  .lead{font-size:18px;line-height:1.6;max-width:48ch;margin:0 0 32px;color:var(--ink-soft)}
+
+  .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:14px 22px;border-radius:10px;font-size:15px;font-weight:600;
+    text-decoration:none;transition:all .2s ease;border:1px solid transparent;
+  }
+  .btn--primary{background:var(--accent);color:#fff}
+  .btn--primary:hover{background:var(--ink);transform:translateY(-1px)}
+  .btn--secondary{background:transparent;color:var(--ink);border-color:var(--ink)}
+  .btn--secondary:hover{background:var(--ink);color:var(--bg)}
+
+  .trust{
+    display:flex;flex-wrap:wrap;gap:6px 20px;
+    font-size:13px;color:var(--ink-muted);
+  }
+  .trust span{display:inline-flex;align-items:center;gap:6px}
+  .trust svg{flex-shrink:0;color:var(--accent)}
+
+  .hero__visual{position:relative}
+  .photo-card{
+    background:linear-gradient(160deg,#8aada4 0%,#2d6358 100%);
+    aspect-ratio:4/5;border-radius:24px;
+    box-shadow:0 20px 60px -15px rgba(45,99,88,.4);
+    position:relative;overflow:hidden;
+  }
+  .photo-card::after{
+    content:"Praxis Nordend";
+    position:absolute;bottom:24px;left:24px;color:rgba(255,255,255,.6);
+    font-size:12px;letter-spacing:0.1em;text-transform:uppercase;
+  }
+  .floating-card{
+    position:absolute;bottom:-24px;left:-24px;
+    background:var(--paper);padding:16px 20px;border-radius:14px;
+    box-shadow:0 12px 30px -10px rgba(0,0,0,.15);
+    display:flex;align-items:center;gap:14px;
+    max-width:260px;
+  }
+  .floating-card__avatar{
+    width:40px;height:40px;border-radius:50%;
+    background:linear-gradient(135deg,#d8c5b8,#9c4a32);flex-shrink:0;
+  }
+  .floating-card__text{font-size:13px;line-height:1.4;color:var(--ink-soft)}
+  .floating-card__text strong{color:var(--ink);font-weight:600;display:block;font-size:13px}
+
+  /* second section */
+  .pillars{padding:88px 0;background:var(--paper)}
+  .pillars__header{text-align:center;max-width:640px;margin:0 auto 56px}
+  .pillars__eyebrow{
+    font-size:13px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:0.1em;
+    margin-bottom:12px;display:inline-block;
+  }
+  .pillars h2{
+    font-family:"Fraunces",serif;font-weight:500;
+    font-size:clamp(28px,3.2vw,40px);line-height:1.2;color:var(--ink);
+    margin:0 0 16px;letter-spacing:-0.015em;
+  }
+  .pillars__sub{font-size:17px;color:var(--ink-muted);margin:0}
+  .pillars__grid{display:grid;grid-template-columns:1fr;gap:24px}
+  @media(min-width:720px){.pillars__grid{grid-template-columns:repeat(3,1fr)}}
+  .pillar{
+    background:var(--bg);padding:32px;border-radius:18px;
+    border:1px solid var(--rule);transition:transform .2s ease;
+  }
+  .pillar:hover{transform:translateY(-2px)}
+  .pillar__icon{
+    width:44px;height:44px;border-radius:12px;background:var(--accent-soft);
+    display:grid;place-items:center;color:var(--accent);margin-bottom:20px;
+  }
+  .pillar h3{
+    font-family:"Inter",sans-serif;font-size:18px;font-weight:600;color:var(--ink);
+    margin:0 0 10px;letter-spacing:-0.01em;
+  }
+  .pillar p{font-size:15px;line-height:1.55;margin:0;color:var(--ink-soft)}
+
+  .variant-tag{
+    position:fixed;bottom:24px;left:24px;background:var(--ink);color:var(--bg);
+    padding:8px 14px;border-radius:8px;font-size:12px;letter-spacing:0.08em;
+    text-transform:uppercase;z-index:100;font-weight:600;
+  }
+  .variant-tag a{color:var(--bg);text-decoration:none;opacity:.6;margin-left:12px}
+  .variant-tag a:hover{opacity:1}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav">
+      <div class="nav__brand"><span class="nav__dot"></span>Praxis Schleich</div>
+      <div class="nav__meta">Frankfurt-Nordend · <a href="#termin">Termin →</a></div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero__blob"></div>
+      <div class="hero__blob hero__blob--2"></div>
+      <div class="hero__grid">
+        <div>
+          <div class="badge">
+            <span class="badge__dot"></span>
+            Termin in 1–2 Wochen verfügbar
+          </div>
+          <h1>ADHS-Diagnostik bei Erwachsenen — <span class="underline">in Wochen, nicht Monaten</span>.</h1>
+          <p class="lead">Online, in unserer Praxis im Frankfurter Nordend oder beides. Du startest mit einer Ersteinschätzung, und entscheidest danach, ob die volle Diagnostik der nächste Schritt ist.</p>
+          <div class="ctas">
+            <a href="#test" class="btn btn--primary">Kostenlosen Selbsttest starten →</a>
+            <a href="#termin" class="btn btn--secondary">Ersteinschätzung anfragen</a>
+          </div>
+          <div class="trust">
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Approbierte Therapeutin</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Ab 123 € Ersteinschätzung</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>GOP-Rechnung für PKV/Beihilfe</span>
+          </div>
+        </div>
+        <div class="hero__visual">
+          <div class="photo-card"></div>
+          <div class="floating-card">
+            <div class="floating-card__avatar"></div>
+            <div class="floating-card__text">
+              <strong>Katarina Schleich</strong>
+              Approbierte Psychotherapeutin
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="pillars">
+    <div class="wrap">
+      <div class="pillars__header">
+        <span class="pillars__eyebrow">Was dich hier erwartet</span>
+        <h2>Nicht nur Diagnose. Nicht nur online. Nicht nur Frankfurt.</h2>
+        <p class="pillars__sub">Drei Dinge, die du bei den meisten Anbietern nicht zusammen bekommst.</p>
+      </div>
+      <div class="pillars__grid">
+        <div class="pillar">
+          <div class="pillar__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3>Termin in 1–2 Wochen</h3>
+          <p>Statt 13 Monaten Warten im Kassensystem. Du bekommst eine echte Praxis, keine anonyme Plattform.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </div>
+          <h3>Dieselbe Person, durchgehend</h3>
+          <p>Von Ersteinschätzung bis Befundbesprechung. Keine wechselnden Behandelnden, kein Erklären von vorne.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <h3>Anschluss-Behandlung mitgedacht</h3>
+          <p>Falls Therapie folgt, planen wir sie schon in der Diagnostik mit — statt dich danach alleine zu lassen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="variant-tag">B · Calm Clinical <a href="index.html">↑ zurück</a></div>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Style-Vergleich · ADHS-Diagnostik Praxis Schleich</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  body{
+    margin:0;font-family:"Inter",system-ui,sans-serif;
+    background:#0e0f12;color:#d4d6d9;min-height:100vh;
+    -webkit-font-smoothing:antialiased;padding:48px 24px;
+  }
+  .wrap{max-width:1180px;margin:0 auto}
+  h1{
+    font-family:"Fraunces",serif;font-weight:400;
+    font-size:clamp(32px,4vw,48px);line-height:1.1;letter-spacing:-0.02em;
+    color:#fff;margin:0 0 12px;
+  }
+  h1 em{font-style:italic;color:#e9b96b}
+  .sub{font-size:17px;color:#9ea1a7;max-width:60ch;margin:0 0 56px}
+  .grid{display:grid;grid-template-columns:1fr;gap:24px}
+  @media(min-width:760px){.grid{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:1100px){.grid{grid-template-columns:repeat(2,1fr)}}
+
+  .card{
+    background:#17191e;border:1px solid #25282f;border-radius:14px;
+    overflow:hidden;text-decoration:none;color:inherit;
+    transition:transform .2s ease,border-color .2s ease;
+    display:flex;flex-direction:column;
+  }
+  .card:hover{transform:translateY(-3px);border-color:#3a3e47}
+  .card__preview{
+    aspect-ratio:16/10;background:#0a0b0e;position:relative;overflow:hidden;
+    border-bottom:1px solid #25282f;
+  }
+  .card__preview iframe{
+    width:200%;height:200%;border:0;transform:scale(0.5);transform-origin:0 0;
+    pointer-events:none;background:#fff;
+  }
+  .card__body{padding:24px 24px 28px}
+  .card__tag{
+    display:inline-block;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;
+    color:#e9b96b;font-weight:600;margin-bottom:10px;
+  }
+  .card__title{
+    font-family:"Fraunces",serif;font-size:22px;font-weight:500;color:#fff;
+    margin:0 0 8px;letter-spacing:-0.01em;
+  }
+  .card__desc{font-size:14px;color:#9ea1a7;line-height:1.55;margin:0 0 14px}
+  .card__meta{
+    font-size:12px;color:#6a6d74;display:flex;gap:14px;flex-wrap:wrap;
+    border-top:1px solid #25282f;padding-top:14px;margin-top:auto;
+  }
+  .card__meta strong{color:#d4d6d9;font-weight:500}
+
+  .legend{
+    margin-top:64px;padding:24px;background:#17191e;border:1px solid #25282f;
+    border-radius:14px;font-size:14px;color:#9ea1a7;line-height:1.6;
+  }
+  .legend strong{color:#fff;font-weight:600}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Sieben Richtungen für die <em>ADHS-Seite</em>.</h1>
+  <p class="sub">Gleiche Hero-Aussage, gleiche CTAs, gleiche Inhalte — sieben visuelle Sprachen. <strong style="color:#fff">E vs. E3</strong> ist die wichtigste Gegenüberstellung: Editorial-Maximum (Italic-Display, Quote, Art-Gallery-Whitespace) gegen Conversion-Disziplin (Roman-Display, Repeat-CTA mit Preis, kürzere Copy). Gleiche Palette, gleiche Struktur — nur Typo und Conversion-Mechanik unterscheiden sich.</p>
+
+  <div class="grid">
+    <a class="card" href="a-editorial.html">
+      <div class="card__preview"><iframe src="a-editorial.html" loading="lazy"></iframe></div>
+      <div class="card__body">
+        <span class="card__tag">Variante A</span>
+        <h2 class="card__title">Editorial Praxis</h2>
+        <p class="card__desc">Serif-H1, warmes Cream, Terrakotta-Akzent. Wirkt wie eine premium Praxis-Marke (Maven, School of Life). Ruhig, menschlich, schreibend.</p>
+        <div class="card__meta">
+          <span><strong>Fraunces</strong> + Inter</span>
+          <span>Terrakotta · Cream</span>
+          <span>Premium-Risiko</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="b-calm-clinical.html">
+      <div class="card__preview"><iframe src="b-calm-clinical.html" loading="lazy"></iframe></div>
+      <div class="card__body">
+        <span class="card__tag">Variante B</span>
+        <h2 class="card__title">Calm Clinical</h2>
+        <p class="card__desc">Petrol-Akzent, sanfte Blobs, Floating-Card mit Therapeutin. Modern wie Headspace/Alma, aber mit Serif-H1 als Wärme-Anker. Mein aktueller Favorit.</p>
+        <div class="card__meta">
+          <span><strong>Fraunces</strong> + Inter</span>
+          <span>Petrol · Cream · Honig</span>
+          <span>Mental-Health-Sprache</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="c-handwerk.html">
+      <div class="card__preview"><iframe src="c-handwerk.html" loading="lazy"></iframe></div>
+      <div class="card__body">
+        <span class="card__tag">Variante C</span>
+        <h2 class="card__title">Vertrauen durch Handwerk</h2>
+        <p class="card__desc">Magazin/Brief-Anmutung. Source-Serif auch im Body, Dropcap, persönlicher Brief der Therapeutin. Sehr menschlich — aber konversionstechnisch ein Risiko.</p>
+        <div class="card__meta">
+          <span><strong>Source Serif</strong> only</span>
+          <span>Aubergine · Pergament</span>
+          <span>Höchstes Vertrauen, niedrigste Conversion-Gewohnheit</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="d-saas-anker.html">
+      <div class="card__preview"><iframe src="d-saas-anker.html" loading="lazy"></iframe></div>
+      <div class="card__body">
+        <span class="card__tag">Variante D · Status quo</span>
+        <h2 class="card__title">SaaS (jetzige Seite)</h2>
+        <p class="card__desc">Vereinfachte Kopie deiner aktuellen Live-Version. Liegt hier nur als Vergleichs-Anker, damit du sehen kannst, wie deutlich die anderen Varianten anders wirken.</p>
+        <div class="card__meta">
+          <span><strong>Inter</strong></span>
+          <span>Royal Blue · Highlighter</span>
+          <span>Funktional · SaaS-Sprache</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="e-feminine-minimal.html">
+      <div class="card__preview"><iframe src="e-feminine-minimal.html" loading="lazy"></iframe></div>
+      <div class="card__body">
+        <span class="card__tag">Variante E · Altrosa</span>
+        <h2 class="card__title">Feminine Minimal · Rose</h2>
+        <p class="card__desc">Off-White, Fraunces-Italic für alle Display-Ebenen, Outfit für alle Inhalte — strenge Trennung statt Typo-Mix. Altrosa als einziger Akzent.</p>
+        <div class="card__meta">
+          <span><strong>Fraunces Italic</strong> + Outfit</span>
+          <span>Off-White · Altrosa</span>
+          <span>Art-Gallery-Density</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="e2-sage-minimal.html">
+      <div class="card__preview"><iframe src="e2-sage-minimal.html" loading="lazy"></iframe></div>
+      <div class="card__body">
+        <span class="card__tag">Variante E2 · Sage</span>
+        <h2 class="card__title">Feminine Minimal · Sage</h2>
+        <p class="card__desc">Identische Typo und Struktur wie E, einziger Unterschied: gedämpftes Salbeigrün statt Altrosa. Weicher, weniger „medizinisch-warm", neigt leicht ins Wellness.</p>
+        <div class="card__meta">
+          <span><strong>Fraunces Italic</strong> + Outfit</span>
+          <span>Off-White · Salbei</span>
+          <span>Art-Gallery-Density</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="e3-rose-conversion.html">
+      <div class="card__preview"><iframe src="e3-rose-conversion.html" loading="lazy"></iframe></div>
+      <div class="card__body">
+        <span class="card__tag">Variante E3 · Conversion</span>
+        <h2 class="card__title">Feminine Minimal · Rose Conversion</h2>
+        <p class="card__desc">Gleiche Palette und Struktur wie E, aber Typo und CTAs sind für Conversion optimiert: Fraunces <strong>Roman</strong> (nicht Italic) für H1/H2, kürzere Lead, Microcopy unter CTA, Trust-Preis als Anker, und ein Repeat-CTA unten statt Editorial-Quote.</p>
+        <div class="card__meta">
+          <span><strong>Fraunces Roman</strong> + Outfit</span>
+          <span>Off-White · Altrosa</span>
+          <span>Conversion-First</span>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <div class="legend">
+    <strong>Wie ich die vier einordne:</strong> A und C sitzen ganz rechts auf der menschlichen Seite (Praxis-Brief-Sprache), B sitzt in der Mitte (modern, aber wärmer als SaaS), D ganz links (funktional, conversion-fokussiert, aber kalt). Conversion-Mechanik (CTA-Hierarchie, Trust-Bar, Selbsttest-Anker) ist in allen vier identisch — was sich ändert ist die emotionale Temperatur, nicht der Funnel.
+    <br><br>
+    <strong>Was wir noch nicht testen können:</strong> Echte Fotos statt Platzhalter-Gradients, Logo, finale Typografie-Lizenzen. Die Mockups sind Style-Frames, keine Produktions-Templates.
+  </div>
+</div>
+</body>
+</html>
